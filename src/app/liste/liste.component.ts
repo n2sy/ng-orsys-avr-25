@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Candidat } from '../models/candidat';
 
 @Component({
@@ -9,4 +9,9 @@ import { Candidat } from '../models/candidat';
 })
 export class ListeComponent {
   @Input() allCandidates: Candidat[] = [];
+  @Output() eventToCv = new EventEmitter<Candidat>();
+
+  sendCandidateToCv(cand) {
+    this.eventToCv.emit(cand);
+  }
 }

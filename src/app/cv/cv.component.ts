@@ -13,4 +13,9 @@ export class CvComponent {
     new Candidat(2, 'homer', 'simpson', 48, 'chef de projet', 'homer.png'),
     new Candidat(3, 'lisa', 'simpson', 21, 'designer', 'lisa.png'),
   ];
+  selectedCandidate: Candidat;
+
+  saveSelectedCandidate(cand) {
+    this.selectedCandidate = cand;
+  }
 }

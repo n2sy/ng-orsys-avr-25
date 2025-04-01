@@ -5,12 +5,13 @@
         <img src="rotating_card_thumb2.png" />
       </div>
       <div class="user">
-        <img class="img-circle" src="bart.jpeg" />
+        <img class="img-circle" [src]="selCand.avatar" />
       </div>
       <div class="content">
         <div class="main">
-          <h3 class="name">Inna Corman</h3>
-          <p class="profession">Product Manager</p>
+          <h3 class="name">{{ selCand.prenom }} {{ selCand.nom }}</h3>
+          <p class="profession">{{ selCand.profession }}</p>
+          <p class="profession">{{ selCand.age }} ans</p>
 
           <p class="text-center">
             "I'm the new Sinatra, and since I made it here I can make it
