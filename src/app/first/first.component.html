@@ -3,7 +3,7 @@
 <div [hidden]="hd" [style.backgroundColor]="cl">Formation en Angular</div>
 
 <button (click)="clickHandler()" class="btn btn-primary">Click me</button>
-
+{{ messageAmina }}
 <input type="text" [(ngModel)]="prenom" class="form-control" />
 <hr />
 
@@ -14,3 +14,17 @@
   [value]="prenom"
   class="form-control"
 />
+
+<div #d>
+  <h3>Vincent</h3>
+  <ol>
+    <li>aaaa</li>
+    <li>bbbb</li>
+  </ol>
+</div>
+
+<button (click)="afficherDiv(d)">click</button>
+
+<hr />
+
+<app-second (eventToParent)="lireLettre($event)"></app-second>
