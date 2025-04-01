@@ -1,0 +1,16 @@
+<p>Je m'appelle {{ prenom }}</p>
+
+<div [hidden]="hd" [style.backgroundColor]="cl">Formation en Angular</div>
+
+<button (click)="clickHandler()" class="btn btn-primary">Click me</button>
+
+<input type="text" [(ngModel)]="prenom" class="form-control" />
+<hr />
+
+<input
+  (input)="editerPrenom(inp.value)"
+  #inp
+  type="text"
+  [value]="prenom"
+  class="form-control"
+/>
