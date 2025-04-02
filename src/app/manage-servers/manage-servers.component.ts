@@ -36,6 +36,15 @@ export class ManageServersComponent {
 
   selectedStatus = '';
 
+  addServer() {
+    this.tabServers.push({
+      name: 'NEW SERVER',
+      type: 'medium',
+      date_d: new Date(),
+      status: 'stable',
+    });
+  }
+
   affecterClass(st) {
     return {
       'list-group-item-success': st == 'stable',

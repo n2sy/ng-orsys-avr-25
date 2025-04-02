@@ -1,5 +1,5 @@
 <li appCustomDir (click)="sendCandidateToListe()" class="list-group-item">
-  <img [src]="oneCandidate.avatar" /> {{ oneCandidate.prenom }}
+  <img [src]="oneCandidate.avatar | noAvatar" /> {{ oneCandidate.prenom }}
   {{ oneCandidate.nom }}
 </li>
 <!-- 
