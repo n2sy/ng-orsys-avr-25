@@ -1,9 +1,6 @@
 <div class="row">
   <div class="col-5">
-    <app-liste
-      (eventToCv)="saveSelectedCandidate($event)"
-      [allCandidates]="tabCandidates"
-    ></app-liste>
+    <app-liste (eventToCv)="saveSelectedCandidate($event)"></app-liste>
   </div>
   <div class="col-7">
     @if (selectedCandidate) {
@@ -14,3 +11,10 @@
     }
   </div>
 </div>
+
+<button (click)="addNewCandidate()" class="btn btn-primary">
+  Add Candidate
+</button>
+<button (click)="showCandidates()" class="btn btn-danger">
+  afficher Candidats Depuis CV
+</button>

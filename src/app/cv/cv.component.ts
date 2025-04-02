@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat';
 import { FirstService } from '../services/first.service';
+import { GestionCandidatsService } from '../services/gestion-candidats.service';
 
 @Component({
   selector: 'app-cv',
@@ -10,25 +11,28 @@ import { FirstService } from '../services/first.service';
   providers: [FirstService],
 })
 export class CvComponent {
-  tabCandidates: Candidat[] = [
-    new Candidat(1, 'bart', 'simpson', 25, 'ingénieur', 'bart.jpeg'),
-    new Candidat(2, 'homer', 'simpson', 48, 'chef de projet', 'homer.png'),
-    new Candidat(3, 'lisa', 'simpson', 21, 'designer', 'lisa.png'),
-    new Candidat(4, 'nidhal', 'jelassi', 42, 'formateur'),
-  ];
+  tabCandidates: Candidat[] = [];
   selectedCandidate: Candidat;
 
   //1ère manière Injection de dépendances
   constructor(private firstSer: FirstService) {}
 
   //2ème manière Injection de dépendances
-  private firstSerV2 = inject(FirstService);
+  private candSer = inject(GestionCandidatsService);
 
   ngOnInit() {
-    this.firstSerV2.showInfos();
+    this.tabCandidates = this.candSer.getAllCandidates();
   }
 
   saveSelectedCandidate(cand) {
     this.selectedCandidate = cand;
+  }
+
+  addNewCandidate() {
+    this.candSer.addCandidate();
+  }
+
+  showCandidates() {
+    console.log(this.candSer.getAllCandidates());
   }
 }
