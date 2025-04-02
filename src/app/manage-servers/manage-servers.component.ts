@@ -34,6 +34,8 @@ export class ManageServersComponent {
     },
   ];
 
+  selectedStatus = '';
+
   affecterClass(st) {
     return {
       'list-group-item-success': st == 'stable',
