@@ -1,4 +1,4 @@
-<app-add-account></app-add-account>
+<app-add-account (eventToHome)="addNewAccount($event)"></app-add-account>
 
 @for (acc of tabAccounts; track $index) {
 <app-item-account [oneAccount]="acc"></app-item-account>

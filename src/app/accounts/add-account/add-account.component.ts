@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-account',
@@ -8,8 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AddAccountComponent {
   allOptions = ['', 'active', 'inactive', 'unknown'];
+  @Output() eventToHome = new EventEmitter();
 
   onAddAccount(n, s) {
-    console.log(n, s);
+    this.eventToHome.emit({
+      nom: n,
+      statut: s,
+    });
   }
 }

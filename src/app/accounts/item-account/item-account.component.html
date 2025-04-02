@@ -2,7 +2,25 @@
   <strong> {{ oneAccount.nom }} </strong>
   <hr />
   <p>This account is {{ oneAccount.statut }}</p>
-  <button class="btn btn-success">Set to 'active'</button>
-  <button class="btn btn-danger">Set to 'inactive'</button>
-  <button class="btn btn-info">Set to 'unknown'</button>
+  <button
+    [disabled]="oneAccount.statut == 'active'"
+    class="btn btn-success"
+    (click)="updateStatut('active')"
+  >
+    Set to 'active'
+  </button>
+  <button
+    [disabled]="oneAccount.statut == 'inactive'"
+    class="btn btn-danger"
+    (click)="updateStatut('inactive')"
+  >
+    Set to 'inactive'
+  </button>
+  <button
+    [disabled]="oneAccount.statut == 'unknown'"
+    class="btn btn-info"
+    (click)="updateStatut('unknown')"
+  >
+    Set to 'unknown'
+  </button>
 </div>

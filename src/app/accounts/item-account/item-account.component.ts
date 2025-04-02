@@ -8,4 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class ItemAccountComponent {
   @Input() oneAccount;
+
+  updateStatut(newStatut) {
+    this.oneAccount.statut = newStatut;
+  }
 }
