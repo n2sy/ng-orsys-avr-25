@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './ms-word.component.css',
 })
 export class MsWordComponent {
-  bgColor = 'yellow';
-  txtColor = 'pink';
+  bgColor;
+  txtColor;
+  txtFont;
+  txtSize;
+
+  updateTextSize(newSize) {
+    let unite = prompt('Veuillez saisir une unité');
+    this.txtSize = `${newSize}${unite}`;
+  }
 }

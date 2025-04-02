@@ -1,8 +1,41 @@
 <div
   [ngStyle]="{
     backgroundColor: bgColor,
+    color: txtColor,
+    fontSize: txtSize,
+    fontFamily: txtFont
+  }"
+>
+  Formation en Angular avec Orsys
+</div>
+
+Background Color :
+<input [(ngModel)]="bgColor" type="text" class="form-control" />
+
+Text Color :
+<input [(ngModel)]="txtColor" type="text" class="form-control" />
+
+Text Size :
+<input
+  #sz
+  (change)="updateTextSize(sz.value)"
+  type="number"
+  class="form-control"
+/>
+
+Text Font :
+<select [(ngModel)]="txtFont" class="form-control">
+  <option value=""></option>
+  <option value="garamond">Garamond</option>
+  <option value="phosphate">Phosphate</option>
+  <option value="arial">Arial</option>
+</select>
+
+<!-- <div
+  [ngStyle]="{
+    backgroundColor: bgColor,
     color: txtColor
   }"
 >
   Exemple de ngStyle
-</div>
+</div> -->
