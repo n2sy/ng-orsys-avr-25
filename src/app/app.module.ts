@@ -10,6 +10,9 @@ import { ListeComponent } from './liste/liste.component';
 import { ItemComponent } from './item/item.component';
 import { DetailsComponent } from './details/details.component';
 import { CommonModule } from '@angular/common';
+import { HomeAccountComponent } from './accounts/home-account/home-account.component';
+import { AddAccountComponent } from './accounts/add-account/add-account.component';
+import { ItemAccountComponent } from './accounts/item-account/item-account.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { CommonModule } from '@angular/common';
     ListeComponent,
     ItemComponent,
     DetailsComponent,
+    HomeAccountComponent,
+    AddAccountComponent,
+    ItemAccountComponent,
   ],
   imports: [BrowserModule, FormsModule, CommonModule],
   providers: [],
