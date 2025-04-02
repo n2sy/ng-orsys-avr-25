@@ -4,8 +4,17 @@ import { Component } from '@angular/core';
   selector: 'app-home-account',
   standalone: false,
   templateUrl: './home-account.component.html',
-  styleUrl: './home-account.component.css'
+  styleUrl: './home-account.component.css',
 })
 export class HomeAccountComponent {
-
+  tabAccounts = [
+    {
+      nom: 'Mathieu Account',
+      statut: 'active',
+    },
+    {
+      nom: 'Amina Account',
+      statut: 'inactive',
+    },
+  ];
 }

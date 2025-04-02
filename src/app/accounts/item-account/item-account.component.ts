@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-account',
   standalone: false,
   templateUrl: './item-account.component.html',
-  styleUrl: './item-account.component.css'
+  styleUrl: './item-account.component.css',
 })
 export class ItemAccountComponent {
-
+  @Input() oneAccount;
 }

@@ -1,1 +1,6 @@
-<p>home-account works!</p>
+<app-add-account></app-add-account>
+
+@for (acc of tabAccounts; track $index) {
+<app-item-account [oneAccount]="acc"></app-item-account>
+
+}
