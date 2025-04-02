@@ -1,4 +1,6 @@
-<li (click)="sendCandidateToListe()" class="list-group-item">
+<li appCustomDir (click)="sendCandidateToListe()" class="list-group-item">
   <img [src]="oneCandidate.avatar" /> {{ oneCandidate.prenom }}
   {{ oneCandidate.nom }}
 </li>
+<!-- 
+<p appCustomDir>Directive personnalisé</p> -->

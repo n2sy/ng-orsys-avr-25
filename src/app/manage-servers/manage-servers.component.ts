@@ -11,28 +11,37 @@ export class ManageServersComponent {
     {
       name: 'Production Server',
       type: 'small',
-      data_d: new Date(2020, 4, 5),
+      date_d: new Date(2020, 4, 5),
       status: 'critical',
     },
     {
       name: 'Development Test Server',
       type: 'large',
-      data_d: new Date(2021, 2, 6),
+      date_d: new Date(2021, 2, 6),
       status: 'stable',
     },
     {
       name: 'Development Server',
       type: 'small',
-      data_d: new Date(2022, 4, 5),
+      date_d: new Date(2022, 4, 5),
       status: 'offline',
     },
     {
       name: 'Nidhal Server',
       type: 'medium',
-      data_d: new Date(),
+      date_d: new Date(),
       status: 'stable',
     },
   ];
+
+  affecterClass(st) {
+    return {
+      'list-group-item-success': st == 'stable',
+      'list-group-item-danger': st == 'critical',
+      'list-group-item-warning': st == 'offline',
+    };
+  }
+
   //   class1 = true;
   //   class2 = false;
   //   class3 = false;

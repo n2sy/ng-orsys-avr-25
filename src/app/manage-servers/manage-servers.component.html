@@ -1,4 +1,13 @@
-<p
+<ul class="list-group">
+  @for (serv of tabServers; track $index) {
+  <li [ngClass]="affecterClass(serv.status)" class="list-group-item">
+    {{ serv.name }} - {{ serv.type }} - {{ serv.date_d }}
+    <span class="badge text-bg-secondary">{{ serv.status }} </span>
+  </li>
+  }
+</ul>
+
+<!-- <p
   [ngClass]="{
     c1: class1,
     c2: class2,
@@ -8,4 +17,4 @@
   Exemple de ngClass
 </p>
 
-<button (click)="switchClass()" class="btn btn-primary">Switch Class</button>
+<button (click)="switchClass()" class="btn btn-primary">Switch Class</button> -->

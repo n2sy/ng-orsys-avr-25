@@ -15,6 +15,7 @@ import { AddAccountComponent } from './accounts/add-account/add-account.componen
 import { ItemAccountComponent } from './accounts/item-account/item-account.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
+import { CustomDirDirective } from './custom-dir.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
     ItemAccountComponent,
     MsWordComponent,
     ManageServersComponent,
+    CustomDirDirective,
   ],
   imports: [BrowserModule, FormsModule, CommonModule],
   providers: [],
