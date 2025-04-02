@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { FirstService } from '../services/first.service';
 
 @Component({
   selector: 'app-cv',
   standalone: false,
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
+  providers: [FirstService],
 })
 export class CvComponent {
   tabCandidates: Candidat[] = [
@@ -15,6 +17,16 @@ export class CvComponent {
     new Candidat(4, 'nidhal', 'jelassi', 42, 'formateur'),
   ];
   selectedCandidate: Candidat;
+
+  //1ère manière Injection de dépendances
+  constructor(private firstSer: FirstService) {}
+
+  //2ème manière Injection de dépendances
+  private firstSerV2 = inject(FirstService);
+
+  ngOnInit() {
+    this.firstSerV2.showInfos();
+  }
 
   saveSelectedCandidate(cand) {
     this.selectedCandidate = cand;
