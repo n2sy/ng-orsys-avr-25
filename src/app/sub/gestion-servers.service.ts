@@ -26,5 +26,9 @@ export class GestionServersService {
     return this.allServers;
   }
 
+  getServerById(serverID) {
+    return this.allServers.find((serv) => serv.id == serverID);
+  }
+
   constructor() {}
 }

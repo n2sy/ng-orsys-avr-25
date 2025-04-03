@@ -29,6 +29,7 @@ import { InfosComponent } from './infos/infos.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SubModule } from './sub/sub.module';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AddComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, CommonModule, INETEUM_ROUTING],
+  imports: [BrowserModule, FormsModule, CommonModule, INETEUM_ROUTING], // EAGER LOADING vs LAZY LOADING
   providers: [SecondService],
   bootstrap: [AppComponent],
 })

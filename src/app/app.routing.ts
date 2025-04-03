@@ -27,7 +27,10 @@ let myRoutes: Routes = [
       },
     ],
   },
-  { path: 'servers', component: ManageServersComponent },
+  {
+    path: 'servers',
+    loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),
+  }, // LAZY LOADING
   { path: 'accounts', component: HomeAccountComponent },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'not-found', component: NotFoundComponent },
