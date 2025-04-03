@@ -22,6 +22,9 @@ import { NoAvatarPipe } from './pipes/no-avatar.pipe';
 import { FirstService } from './services/first.service';
 import { SecondService } from './services/second.service';
 import { RecruesComponent } from './recrues/recrues.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { INETEUM_ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +45,10 @@ import { RecruesComponent } from './recrues/recrues.component';
     FilterPipe,
     NoAvatarPipe,
     RecruesComponent,
+    AccueilComponent,
+    NavbarComponent,
   ],
-  imports: [BrowserModule, FormsModule, CommonModule],
+  imports: [BrowserModule, FormsModule, CommonModule, INETEUM_ROUTING],
   providers: [SecondService],
   bootstrap: [AppComponent],
 })

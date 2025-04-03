@@ -1,0 +1,17 @@
+<h3>Bienvenue à notre application Angular chez Orsys...</h3>
+<hr />
+<strong>Navigation côté HTML</strong>
+<br />
+<button routerLink="cv" class="btn btn-outline-primary">Go To Cv</button>
+
+<button [routerLink]="['accounts']" class="btn btn-outline-warning">
+  Go To Accounts
+</button>
+<hr />
+<button (click)="goToServers('servers')" class="btn btn-outline-info">
+  Go To Servers
+</button>
+
+<button (click)="goToWord()" class="btn btn-outline-danger">
+  Go To Ms-Word
+</button>
