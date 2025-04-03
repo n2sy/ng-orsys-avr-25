@@ -22,6 +22,7 @@ export class CvComponent {
 
   ngOnInit() {
     this.tabCandidates = this.candSer.getAllCandidates();
+    this.firstSer.showInfos();
   }
 
   saveSelectedCandidate(cand) {

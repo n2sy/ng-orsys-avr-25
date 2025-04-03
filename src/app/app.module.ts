@@ -20,6 +20,8 @@ import { ShortPipe } from './pipes/short.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NoAvatarPipe } from './pipes/no-avatar.pipe';
 import { FirstService } from './services/first.service';
+import { SecondService } from './services/second.service';
+import { RecruesComponent } from './recrues/recrues.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,10 @@ import { FirstService } from './services/first.service';
     ShortPipe,
     FilterPipe,
     NoAvatarPipe,
+    RecruesComponent,
   ],
   imports: [BrowserModule, FormsModule, CommonModule],
-  providers: [],
+  providers: [SecondService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
