@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { GestionRecruesService } from '../services/gestion-recrues.service';
 
 @Component({
   selector: 'app-details',
@@ -9,4 +10,10 @@ import { Candidat } from '../models/candidat';
 })
 export class DetailsComponent {
   @Input() selCand: Candidat;
+
+  private recrueService = inject(GestionRecruesService);
+
+  recruterHandler() {
+    this.recrueService.addRecrue(this.selCand);
+  }
 }

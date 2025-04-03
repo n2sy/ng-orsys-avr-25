@@ -5,7 +5,17 @@ import { Candidat } from '../models/candidat';
   providedIn: 'root',
 })
 export class GestionRecruesService {
-  allRecrues: Candidat[] = [];
+  private allRecrues: Candidat[] = [];
 
   constructor() {}
+
+  getAllRecrues() {
+    return this.allRecrues;
+  }
+
+  addRecrue(newRecrue: Candidat) {
+    if (this.allRecrues.indexOf(newRecrue) == -1)
+      this.allRecrues.push(newRecrue);
+    else alert('Ce candidat a déjà été recruté !');
+  }
 }
