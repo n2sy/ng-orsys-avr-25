@@ -8,6 +8,7 @@ import { InfosComponent } from './infos/infos.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 //2eme version
 let myRoutes: Routes = [
@@ -32,6 +33,7 @@ let myRoutes: Routes = [
     loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),
   }, // LAZY LOADING
   { path: 'accounts', component: HomeAccountComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }, // Wild Route
