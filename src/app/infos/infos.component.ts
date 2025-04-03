@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { GestionCandidatsService } from '../services/gestion-candidats.service';
+import { Candidat } from '../models/candidat';
 
 @Component({
   selector: 'app-infos',
@@ -9,7 +11,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class InfosComponent {
   myId;
+  selectedCandidate: Candidat;
   private activatedRoute = inject(ActivatedRoute);
+  private candSer = inject(GestionCandidatsService);
 
   ngOnInit() {
     //1ere méthode
@@ -18,8 +22,10 @@ export class InfosComponent {
     //2ème méthode
 
     this.activatedRoute.paramMap.subscribe({
-      next: (data: ParamMap) => {
-        this.myId = data.get('id');
+      next: (paramRoute: ParamMap) => {
+        //console.log(typeof paramRoute.get('id'));
+        let id = paramRoute.get('id');
+        this.selectedCandidate = this.candSer.getCandidatById(id);
       },
       //   error: () => {},
       //   complete : () => {
