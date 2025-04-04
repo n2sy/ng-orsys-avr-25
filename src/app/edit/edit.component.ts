@@ -21,7 +21,7 @@ export class EditComponent {
   }
 
   editHandler(formValue) {
-    formValue.id = this.candToUpdate.id;
+    formValue.id = this.candToUpdate._id;
     this.candSer.updateCandidat(formValue);
     this.router.navigateByUrl('/cv');
   }

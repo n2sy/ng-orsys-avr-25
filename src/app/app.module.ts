@@ -32,6 +32,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
 import { ReactFormComponent } from './react-form/react-form.component';
+import { ExpObsComponent } from './exp-obs/exp-obs.component';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { ReactFormComponent } from './react-form/react-form.component';
     NotFoundComponent,
     LoginComponent,
     ReactFormComponent,
+    ExpObsComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ import { ReactFormComponent } from './react-form/react-form.component';
     CommonModule,
     INETEUM_ROUTING,
   ], // EAGER LOADING vs LAZY LOADING
-  providers: [SecondService],
+  providers: [SecondService, provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AccueilComponent {
   private router = inject(Router);
+  private http = inject(HttpClient); // ApolloClient pour GraphQL
 
   goToServers(url: string) {
     // Routes statiques
@@ -18,5 +20,19 @@ export class AccueilComponent {
   goToWord() {
     //Routes Dynamiques
     this.router.navigate(['ms-word']);
+  }
+
+  recupererDonneesDepuisAPI() {
+    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('Recupération terminée');
+      },
+    });
   }
 }
