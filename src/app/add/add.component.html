@@ -1,1 +1,38 @@
-<p>Je suis le AddComponent</p>
+<form #f="ngForm" (ngSubmit)="addHandler(f.value)">
+  <label for="prenom">Prénom</label>
+  <input
+    required
+    type="text"
+    class="form-control"
+    id="prenom"
+    name="prenom"
+    ngModel
+  />
+  <label for="nom">Nom</label>
+  <input
+    required
+    type="text"
+    class="form-control"
+    id="nom"
+    name="nom"
+    ngModel
+  />
+
+  <label for="age">Age</label>
+  <input type="number" ngModel class="form-control" id="age" name="age" />
+
+  <label for="profession">Profession</label>
+  <input
+    required
+    type="text"
+    class="form-control"
+    id="profession"
+    name="profession"
+    ngModel
+  />
+
+  <label for="path">Url de l'avatar</label>
+  <input type="text" class="form-control" id="path" name="avatar" ngModel />
+
+  <button class="btn btn-primary">Ajouter Candidat</button>
+</form>

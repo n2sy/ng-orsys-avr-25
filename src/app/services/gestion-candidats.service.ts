@@ -20,6 +20,21 @@ export class GestionCandidatsService {
     return this.listCandidates.find((cand) => cand.id == selectedId);
   }
 
+  addNewCandidate(newCand) {
+    newCand.id = this.listCandidates[this.listCandidates.length - 1].id + 1;
+    this.listCandidates.push(newCand);
+  }
+
+  updateCandidat(uCand) {
+    let i = this.listCandidates.findIndex((cand) => cand.id == uCand.id);
+    this.listCandidates[i] = uCand;
+  }
+
+  deleteCandidat(id) {
+    let i = this.listCandidates.findIndex((cand) => cand.id == id);
+    this.listCandidates.splice(i, 1);
+  }
+
   //   addCandidate() {
   //     this.listCandidates.push(
   //       new Candidat(5, 'NEW', 'CANDIDAT', 21, 'designer', 'lisa.png')
