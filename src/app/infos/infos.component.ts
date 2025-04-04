@@ -44,8 +44,15 @@ export class InfosComponent {
 
   deleteHandler() {
     if (confirm('Etes vous sûr de vouloir supprimer ce candidat ?')) {
-      this.candSer.deleteCandidat(this.selectedCandidate._id);
-      this.router.navigateByUrl('/cv');
+      this.candSer.deleteCandidatAPI(this.selectedCandidate._id).subscribe({
+        next: (response) => {
+          alert(response['message']);
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 }

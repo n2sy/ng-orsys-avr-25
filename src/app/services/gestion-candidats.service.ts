@@ -59,6 +59,10 @@ export class GestionCandidatsService {
     this.listCandidates.splice(i, 1);
   }
 
+  deleteCandidatAPI(id) {
+    return this.http.delete(`${this.link}/free/${id}`);
+  }
+
   //   addCandidate() {
   //     this.listCandidates.push(
   //       new Candidat(5, 'NEW', 'CANDIDAT', 21, 'designer', 'lisa.png')
