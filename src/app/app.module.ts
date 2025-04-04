@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SecondComponent } from './second/second.component';
 import { CvComponent } from './cv/cv.component';
 import { ListeComponent } from './liste/liste.component';
@@ -31,6 +31,7 @@ import { AddComponent } from './add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
+import { ReactFormComponent } from './react-form/react-form.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +59,15 @@ import { LoginComponent } from './login/login.component';
     AddComponent,
     NotFoundComponent,
     LoginComponent,
+    ReactFormComponent,
   ],
-  imports: [BrowserModule, FormsModule, CommonModule, INETEUM_ROUTING], // EAGER LOADING vs LAZY LOADING
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    INETEUM_ROUTING,
+  ], // EAGER LOADING vs LAZY LOADING
   providers: [SecondService],
   bootstrap: [AppComponent],
 })

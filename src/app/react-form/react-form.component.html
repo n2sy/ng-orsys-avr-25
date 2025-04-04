@@ -1,0 +1,25 @@
+<form [formGroup]="signUnForm">
+  <label for="">Nom d'utilisateur</label>
+  <input type="text" class="form-control" formControlName="username" />
+
+  <label for="">Adresse mail</label>
+  <input type="text" class="form-control" formControlName="addmail" />
+
+  @if (signUnForm.get('addmail').dirty) {
+  <div class="alert alert-primary">
+    Vous venez de modifier le champ Adresse mail
+  </div>
+  }
+
+  <div>
+    <label for="">Langage(s) maitrisé(s)</label>
+    <br />
+    <button (click)="addSkill()" class="btn btn-outline-primary">Add +</button>
+    @for (ctrl of formSkills.controls; track $index) {
+    <input type="text" class="form-control" [formControl]="$any(ctrl)" />
+    }
+  </div>
+  <pre>
+    {{ signUnForm.value | json }}
+  </pre>
+</form>
