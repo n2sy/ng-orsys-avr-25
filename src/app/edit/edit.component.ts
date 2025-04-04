@@ -17,12 +17,26 @@ export class EditComponent {
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.candToUpdate = this.candSer.getCandidatById(id);
+    this.candSer.getCandidatByIdAPI(id).subscribe({
+      next: (response: Candidat) => {
+        this.candToUpdate = response;
+      },
+      error: (err) => {
+        this.router.navigateByUrl('/not-found');
+      },
+    });
   }
 
   editHandler(formValue) {
-    formValue.id = this.candToUpdate._id;
-    this.candSer.updateCandidat(formValue);
-    this.router.navigateByUrl('/cv');
+    formValue._id = this.candToUpdate._id;
+    this.candSer.updateCandidatAPI(formValue).subscribe({
+      next: (response) => {
+        alert(response['message']);
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

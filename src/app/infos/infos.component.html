@@ -11,7 +11,7 @@
             width="150px"
             height="150px"
             class="rounded-circle align-content-center"
-            [src]="selectedCandidate.avatar | noAvatar"
+            [src]="selectedCandidate?.avatar | noAvatar"
             alt=""
           />
         </div>
@@ -25,24 +25,26 @@
               <tbody>
                 <tr>
                   <td>
-                    <strong>Prénom</strong> {{ selectedCandidate.prenom }}
+                    <strong>Prénom</strong> {{ selectedCandidate?.prenom }}
                   </td>
                 </tr>
                 <tr>
-                  <td><strong>Nom</strong> {{ selectedCandidate.nom }}</td>
+                  <td><strong>Nom</strong> {{ selectedCandidate?.nom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Age</strong> {{ selectedCandidate.age }}</td>
+                  <td><strong>Age</strong> {{ selectedCandidate?.age }}</td>
                 </tr>
 
                 <tr>
                   <td>
                     <strong>Profession</strong>
-                    {{ selectedCandidate.profession }}
+                    {{ selectedCandidate?.profession }}
                   </td>
                 </tr>
                 <tr>
-                  <td><strong>Image</strong> {{ selectedCandidate.avatar }}</td>
+                  <td>
+                    <strong>Image</strong> {{ selectedCandidate?.avatar }}
+                  </td>
                 </tr>
               </tbody>
             </table>

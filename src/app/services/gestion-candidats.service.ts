@@ -29,6 +29,10 @@ export class GestionCandidatsService {
     return this.listCandidates.find((cand) => cand._id == selectedId);
   }
 
+  getCandidatByIdAPI(selectedId: any) {
+    return this.http.get(`${this.link}/${selectedId}`);
+  }
+
   addNewCandidate(newCand) {
     newCand.id = this.listCandidates[this.listCandidates.length - 1]._id + 1;
     this.listCandidates.push(newCand);
@@ -45,6 +49,9 @@ export class GestionCandidatsService {
   updateCandidat(uCand) {
     let i = this.listCandidates.findIndex((cand) => cand._id == uCand.id);
     this.listCandidates[i] = uCand;
+  }
+  updateCandidatAPI(uCand) {
+    return this.http.put(`${this.link}/free/${uCand._id}`, uCand);
   }
 
   deleteCandidat(id) {

@@ -26,7 +26,14 @@ export class InfosComponent {
       next: (paramRoute: ParamMap) => {
         //console.log(typeof paramRoute.get('id'));
         let id = paramRoute.get('id');
-        this.selectedCandidate = this.candSer.getCandidatById(id);
+        this.candSer.getCandidatByIdAPI(id).subscribe({
+          next: (response: Candidat) => {
+            this.selectedCandidate = response;
+          },
+          error: (err) => {
+            this.router.navigateByUrl('/not-found');
+          },
+        });
       },
       //   error: () => {},
       //   complete : () => {
