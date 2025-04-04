@@ -1,1 +1,79 @@
-<p>login works!</p>
+<form #f="ngForm" (ngSubmit)="submitHandler(f)">
+  <label>Adresse mail</label>
+  <input
+    #inpLogin="ngModel"
+    ngModel
+    required
+    email
+    name="email"
+    type="text"
+    class="form-control"
+  />
+
+  @if (inpLogin.invalid && inpLogin.touched) {
+  <div class="alert alert-danger">
+    Veuillez saisir une adresse mail valide...
+  </div>
+  }
+
+  <label for="">Mot de passe</label>
+  <input
+    #inpPwd="ngModel"
+    ngModel
+    required
+    minlength="5"
+    name="password"
+    type="text"
+    class="form-control"
+  />
+
+  @if (inpPwd.invalid && inpPwd.dirty) {
+  <div class="alert alert-danger">Le nombre minimal de caractères est 5...</div>
+  }
+
+  <div #infos="ngModelGroup" ngModelGroup="infos">
+    <label>Langage préféré</label>
+    <select
+      required
+      name="langage"
+      [ngModel]="defaultLanguage"
+      class="form-control"
+    >
+      <option value=""></option>
+      <option value="java">Java</option>
+      <option value="php">php</option>
+      <option value="python">python</option>
+    </select>
+    <br />
+    {{ defaultLanguage }}
+    <br />
+
+    <label for="">Commentaire</label>
+    <textarea
+      name="commentaire"
+      [(ngModel)]="monCommentaire"
+      cols="5"
+      rows="4"
+      class="form-control"
+    ></textarea>
+
+    <br />
+    {{ monCommentaire }}
+    <br />
+  </div>
+  @if (infos.dirty) {
+  <div class="alert alert-primary">Le select a été modifié</div>
+  }
+
+  <button type="submit" class="btn btn-primary">Se connecter</button>
+  <button (click)="reinitialiser(f)" class="btn btn-warning">
+    Reinitialiser
+  </button>
+  <button (click)="generatePwd(f)" class="btn btn-danger">
+    Generer Mot de passe
+  </button>
+
+  <pre>
+    {{ f.value | json }}
+  </pre>
+</form>
