@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -39,7 +39,10 @@ export class GestionCandidatsService {
   }
 
   addNewCandidateAPI(newCand) {
-    return this.http.post(`${this.link}/free`, newCand);
+    return this.http.post(`${this.link}`, newCand);
+    //    else {
+    //     alert("La requete ne part pas")
+    //    }
   }
 
   uploadAvatar(f: FormData) {
@@ -51,7 +54,7 @@ export class GestionCandidatsService {
     this.listCandidates[i] = uCand;
   }
   updateCandidatAPI(uCand) {
-    return this.http.put(`${this.link}/free/${uCand._id}`, uCand);
+    return this.http.put(`${this.link}/${uCand._id}`, uCand);
   }
 
   deleteCandidat(id) {
@@ -60,7 +63,7 @@ export class GestionCandidatsService {
   }
 
   deleteCandidatAPI(id) {
-    return this.http.delete(`${this.link}/free/${id}`);
+    return this.http.delete(`${this.link}/${id}`);
   }
 
   //   addCandidate() {

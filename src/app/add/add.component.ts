@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 export class AddComponent {
   private candSer = inject(GestionCandidatsService);
   private router = inject(Router);
+  isSubmitted = false;
 
   addHandler(formValue, event) {
+    this.isSubmitted = true;
     let formData = new FormData();
     formData.append('avatar', event.target[4].files[0]);
     this.candSer.uploadAvatar(formData).subscribe({

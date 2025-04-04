@@ -1,4 +1,8 @@
-<form #f="ngForm" (ngSubmit)="submitHandler(f)">
+@if (showError) {
+<div class="alert alert-danger">Login et/ou mot de passse invalide (s)</div>
+}
+
+<form #f="ngForm">
   <label>Adresse mail</label>
   <input
     #inpLogin="ngModel"
@@ -30,7 +34,41 @@
   @if (inpPwd.invalid && inpPwd.dirty) {
   <div class="alert alert-danger">Le nombre minimal de caractères est 5...</div>
   }
+  <br />
+  <div class="col-4 offset-4">
+    @if (showRegister) {
+    <button
+      (click)="submitHandler(f)"
+      [disabled]="f.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Register
+    </button>
+    <button
+      (click)="toggleShowRegister()"
+      type="submit"
+      class="btn btn-warning"
+    >
+      Switch to Login
+    </button>
+    } @else {
+    <button
+      (click)="submitHandler(f)"
+      [disabled]="f.invalid"
+      type="submit"
+      class="btn btn-info"
+    >
+      Login
+    </button>
 
+    <button (click)="toggleShowRegister()" type="submit" class="btn btn-danger">
+      Switch to Register
+    </button>
+    }
+  </div>
+
+  <!-- 
   <div #infos="ngModelGroup" ngModelGroup="infos">
     <label>Langage préféré</label>
     <select
@@ -63,15 +101,14 @@
   </div>
   @if (infos.dirty) {
   <div class="alert alert-primary">Le select a été modifié</div>
-  }
+  } -->
 
-  <button type="submit" class="btn btn-primary">Se connecter</button>
-  <button (click)="reinitialiser(f)" class="btn btn-warning">
+  <!-- <button (click)="reinitialiser(f)" class="btn btn-warning">
     Reinitialiser
   </button>
   <button (click)="generatePwd(f)" class="btn btn-danger">
     Generer Mot de passe
-  </button>
+  </button> -->
 
   <pre>
     {{ f.value | json }}

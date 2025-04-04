@@ -33,7 +33,8 @@ import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
 import { ReactFormComponent } from './react-form/react-form.component';
 import { ExpObsComponent } from './exp-obs/exp-obs.component';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { addTokenInterceptor } from './add-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,10 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
     CommonModule,
     INETEUM_ROUTING,
   ], // EAGER LOADING vs LAZY LOADING
-  providers: [SecondService, provideHttpClient()],
+  providers: [
+    SecondService,
+    provideHttpClient(withInterceptors([addTokenInterceptor])),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

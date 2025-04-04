@@ -10,6 +10,10 @@ import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { ReactFormComponent } from './react-form/react-form.component';
+import { withTokenGuard } from './guards/with-token.guard';
+import { isloggedGuard } from './guards/islogged.guard';
+import { quitterLoginGuard } from './guards/quitter-login.guard';
+import { quitterFormGuard } from './guards/quitter-form.guard';
 
 //2eme version
 // let myRoutes: Routes = [
@@ -47,12 +51,21 @@ let myRoutes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddComponent },
+      {
+        path: 'add',
+        component: AddComponent,
+        canActivate: [withTokenGuard],
+        canDeactivate: [quitterFormGuard],
+      },
       {
         path: ':id',
         children: [
           { path: '', component: InfosComponent },
-          { path: 'edit', component: EditComponent },
+          {
+            path: 'edit',
+            component: EditComponent,
+            canActivate: [withTokenGuard],
+          },
         ],
       },
     ],
@@ -60,6 +73,12 @@ let myRoutes: Routes = [
   { path: 'servers', component: ManageServersComponent },
   { path: 'accounts', component: HomeAccountComponent },
   { path: 'react', component: ReactFormComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [isloggedGuard],
+    canDeactivate: [quitterLoginGuard],
+  },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }, // Wild Route
