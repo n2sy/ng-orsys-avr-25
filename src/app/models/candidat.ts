@@ -8,6 +8,7 @@ export class Candidat {
     public nom: string,
     public age: number,
     public profession: string,
+    public recrue: boolean,
     public avatar?: string
   ) {
     // this.id = id;

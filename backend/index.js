@@ -27,6 +27,11 @@ app.use("/auth", authRoutes);
 app.use("/cv", cvRoutes);
 
 app.use((error, req, res, next) => {
+  if (error.code === "LIMIT_FILE_SIZE") {
+    return res.status(400).json({
+      message: "Le fichier est trop volumineux. Taille maximale : 1 Mo.",
+    });
+  }
   const status = error.statusCode || 500;
   const message = error.message;
   const data = error.data;
@@ -36,6 +41,7 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(
     `mongodb+srv://${process.env.username}:${process.env.password}@${process.env.projectname}.cpsst.mongodb.net/${process.env.bdname}?retryWrites=true&w=majority`
+    // `mongodb+srv://${process.env.username}:${process.env.password}rty@cvproject.cpsst.mongodb.net/${process.env.bdname}`
   )
   .then(
     app.listen(

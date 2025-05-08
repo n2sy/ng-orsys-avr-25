@@ -55,8 +55,15 @@
       </div>
       <div class="footer">
         <div class="social-links text-center">
-          <button (click)="recruterHandler()" class="btn btn-success">
-            Recruter
+          <button
+            (click)="recruterHandler()"
+            class="btn"
+            [ngClass]="{
+              'btn-success': !selCand.recrue,
+              'btn-danger': selCand.recrue
+            }"
+          >
+            {{ selCand.recrue ? "Virer" : "Recruter" }}
           </button>
           <a [routerLink]="[selCand._id]" class="btn btn-info"> Details </a>
         </div>

@@ -11,11 +11,12 @@ const MIME_TYPE_MAP = {
 const upload = multer.diskStorage({
   destination: (req, file, cb) => {
     const isValid = MIME_TYPE_MAP[file.mimetype];
-    let error = new Error("Invalid mime type");
+    let error = new Error("Le format de l'image est invalide");
     if (isValid) {
-      error = null;
+      cb(null, "./uploads");
+    } else {
+      cb(error, null);
     }
-    cb(null, "./uploads");
   },
   filename: (req, file, cb) => {
     const name =
@@ -28,7 +29,9 @@ const upload = multer.diskStorage({
 const router = express.Router();
 router.post(
   "",
-  multer({ storage: upload }).single("avatar"),
+  multer({ storage: upload, limits: { fileSize: 1 * 1024 * 1024 } }).single(
+    "avatar"
+  ),
   avatarCtrl.postAvatar
 );
 module.exports = router;

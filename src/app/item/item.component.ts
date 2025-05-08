@@ -9,9 +9,9 @@ import { Candidat } from '../models/candidat';
 })
 export class ItemComponent {
   @Input() oneCandidate: Candidat;
-  @Output() eventToListe = new EventEmitter<Candidat>();
+  @Output() eventToListe = new EventEmitter();
 
   sendCandidateToListe() {
-    this.eventToListe.emit(this.oneCandidate);
+    this.eventToListe.emit(this.oneCandidate._id);
   }
 }

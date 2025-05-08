@@ -9,6 +9,6 @@ export const quitterLoginGuard: CanDeactivateFn<unknown> = (
   nextState
 ) => {
   let authSer = inject(AuthService);
-  if (authSer.estConnecte()) return true;
+  if (authSer.isLoggedIn) return true;
   return false;
 };

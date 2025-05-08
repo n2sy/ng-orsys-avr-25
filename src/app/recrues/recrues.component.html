@@ -1,10 +1,14 @@
-@if (tabRecrues.length) {
+@if (recrueSer.allRecrues().length) {
 <h5>Liste des recrues</h5>
-<ol class="list-group">
-  @for (rec of tabRecrues; track $index) {
-  <app-item [oneCandidate]="rec"></app-item>
-
+<div class="row">
+  @for (rec of recrueSer.allRecrues(); track $index) {
+  <div class="col-8">
+    <app-item [oneCandidate]="rec"></app-item>
+  </div>
+  <div class="col-2">
+    <button class="btn" (click)="recrueSer.deleteRecrueAPI(rec._id)">X</button>
+  </div>
   }
-</ol>
+</div>
 
 }

@@ -34,7 +34,7 @@ export class LoginComponent {
         next: (response) => {
           alert(response['message']);
           localStorage.setItem('access_token', response['token']);
-
+          this.authSer.isLoggedIn = true;
           this.router.navigateByUrl('/cv');
         },
         error: (err) => {

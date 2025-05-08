@@ -11,7 +11,7 @@ import { GestionCandidatsService } from '../services/gestion-candidats.service';
 })
 export class ListeComponent {
   allCandidates: Candidat[] = [];
-  @Output() eventToCv = new EventEmitter<Candidat>();
+  @Output() eventToCv = new EventEmitter();
 
   private candSer = inject(GestionCandidatsService);
 
@@ -28,8 +28,8 @@ export class ListeComponent {
     });
   }
 
-  sendCandidateToCv(cand) {
-    this.eventToCv.emit(cand);
+  sendCandidateToCv(candId) {
+    this.eventToCv.emit(candId);
   }
 
   showCandidates() {

@@ -5,8 +5,8 @@
     <app-liste (eventToCv)="saveSelectedCandidate($event)"></app-liste>
   </div>
   <div class="col-7">
-    @if (selectedCandidate) {
-    <app-details [selCand]="selectedCandidate"></app-details>
+    @if (selectedCandidateId) {
+    <app-details [selCandId]="selectedCandidateId"></app-details>
 
     } @else {
     <i>Veuillez sélectionnez un candidat...</i>

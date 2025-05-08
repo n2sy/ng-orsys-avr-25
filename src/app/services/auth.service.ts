@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   link = 'http://localhost:3000/auth';
+  //isLoggedIn = signal(false);
+  isLoggedIn = false;
 
   constructor(private http: HttpClient) {}
 
@@ -17,12 +19,13 @@ export class AuthService {
   }
   deconnexion() {
     localStorage.removeItem('access_token');
+    this.isLoggedIn = false;
   }
-  estConnecte() {
-    let token = localStorage.getItem('access_token');
-    if (token) return true;
-    return false;
+  //   estConnecte() {
+  //     let token = localStorage.getItem('access_token');
+  //     if (token) return true;
+  //     return false;
 
-    // return !!localStorage.getItem("access_token");
-  }
+  //     // return !!localStorage.getItem("access_token");
+  //   }
 }

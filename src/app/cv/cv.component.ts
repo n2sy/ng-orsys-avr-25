@@ -12,7 +12,7 @@ import { GestionCandidatsService } from '../services/gestion-candidats.service';
 })
 export class CvComponent {
   tabCandidates: Candidat[] = [];
-  selectedCandidate: Candidat;
+  selectedCandidateId: Candidat;
 
   //1ère manière Injection de dépendances
   constructor(private firstSer: FirstService) {}
@@ -25,8 +25,8 @@ export class CvComponent {
     this.firstSer.showInfos();
   }
 
-  saveSelectedCandidate(cand) {
-    this.selectedCandidate = cand;
+  saveSelectedCandidate(candId) {
+    this.selectedCandidateId = candId;
   }
 
   addNewCandidate() {

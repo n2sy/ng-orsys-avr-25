@@ -8,10 +8,18 @@ import { Observable } from 'rxjs';
 })
 export class GestionCandidatsService {
   private listCandidates: Candidat[] = [
-    new Candidat(1, 'bart', 'simpson', 25, 'ingénieur', 'bart.jpeg'),
-    new Candidat(2, 'homer', 'simpson', 48, 'chef de projet', 'homer.png'),
-    new Candidat(3, 'lisa', 'simpson', 21, 'designer', 'lisa.png'),
-    new Candidat(4, 'nidhal', 'jelassi', 42, 'formateur'),
+    new Candidat(1, 'bart', 'simpson', 25, 'ingénieur', false, 'bart.jpeg'),
+    new Candidat(
+      2,
+      'homer',
+      'simpson',
+      48,
+      'chef de projet',
+      false,
+      'homer.png'
+    ),
+    new Candidat(3, 'lisa', 'simpson', 21, 'designer', false, 'lisa.png'),
+    new Candidat(4, 'nidhal', 'jelassi', 42, 'formateur', false),
   ];
   link = 'http://localhost:3000/cv/candidats';
 

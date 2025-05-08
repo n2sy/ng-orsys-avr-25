@@ -18,7 +18,7 @@
       >Cv</a
     >
   </li>
-  @if(authSer.estConnecte()) {
+  @if(authSer.isLoggedIn) {
   <li class="nav-item">
     <a class="nav-link" routerLink="cv/add" routerLinkActive="active"
       >Ajouter</a
@@ -42,7 +42,7 @@
       >Ms-Word</a
     >
   </li>
-  @if(!authSer.estConnecte()) {
+  @if(!authSer.isLoggedIn) {
   <li class="nav-item">
     <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
   </li>

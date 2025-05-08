@@ -97,6 +97,8 @@ exports.updateCandidat2 = (req, res, next) => {
     });
 };
 exports.recruterCandidat = (req, res, next) => {
+  console.log("zzzz");
+
   const pId = req.params["id"];
 
   Personne.findById(pId)
@@ -106,6 +108,7 @@ exports.recruterCandidat = (req, res, next) => {
         error.statusCode = 404;
         throw error;
       }
+      console.log(p);
 
       p = _.merge(p, req.body);
 

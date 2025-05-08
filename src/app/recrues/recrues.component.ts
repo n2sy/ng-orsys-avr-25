@@ -9,11 +9,11 @@ import { Candidat } from '../models/candidat';
   styleUrl: './recrues.component.css',
 })
 export class RecruesComponent {
-  tabRecrues: Candidat[] = [];
-  private recrueSer = inject(GestionRecruesService);
+  //tabRecrues: Candidat[] = [];
+  public recrueSer = inject(GestionRecruesService);
 
   ngOnInit() {
-    this.tabRecrues = this.recrueSer.getAllRecrues();
+    this.recrueSer.getAllRecruesAPI();
     // console.log('Nouvelle recrue détectée');
   }
 }
