@@ -35,6 +35,12 @@ import { ReactFormComponent } from './react-form/react-form.component';
 import { ExpObsComponent } from './exp-obs/exp-obs.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { addTokenInterceptor } from './add-token.interceptor';
+import {
+  provideTranslateService,
+  TranslateDirective,
+  TranslatePipe,
+} from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -71,10 +77,21 @@ import { addTokenInterceptor } from './add-token.interceptor';
     ReactiveFormsModule,
     CommonModule,
     INETEUM_ROUTING,
+    TranslatePipe,
+    TranslateDirective,
   ], // EAGER LOADING vs LAZY LOADING
   providers: [
     SecondService,
     provideHttpClient(withInterceptors([addTokenInterceptor])),
+    provideHttpClient(),
+    provideTranslateService({
+      loader: provideTranslateHttpLoader({
+        prefix: '/i18n/',
+        suffix: '.json',
+      }),
+      fallbackLang: 'fr',
+      lang: 'fr',
+    }),
   ],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-accueil',
@@ -11,6 +12,17 @@ import { Router } from '@angular/router';
 export class AccueilComponent {
   private router = inject(Router);
   private http = inject(HttpClient); // ApolloClient pour GraphQL
+  private translate = inject(TranslateService);
+
+  constructor() {
+    this.translate.addLangs(['en', 'fr']);
+    this.translate.setFallbackLang('fr');
+    this.translate.use('fr');
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
+  }
 
   goToServers(url: string) {
     // Routes statiques

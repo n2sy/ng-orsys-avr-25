@@ -21,4 +21,18 @@
   Fetch Data
 </button>
 
+<hr />
+
+<h1 translate>hello</h1>
+<!-- <h1 translate>
+  {{ "bonjour" | translate }} Nidhal - {{ "formation" | translate }} Angular -
+  {{ "année" | translate }} 2025
+</h1> -->
+<p>{{ "WELCOME" | translate }}</p>
+
+<select #langSelect (change)="switchLang(langSelect.value)">
+  <option value="fr">Français</option>
+  <option value="en">English</option>
+</select>
+
 <!-- <app-exp-obs></app-exp-obs> -->
